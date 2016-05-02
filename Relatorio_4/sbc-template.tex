@@ -45,7 +45,7 @@
 
 A Tecnologia da Informação é muito utilizada em Sistemas de Gerenciamento,
 pela facilidade em organizar, acessar e mudar dados e informações. Deste modo
-este presente relatório traz um Sistema de Gerenciamento de Imunizados, implementado
+este presente relatório traz um Sistema de Gerenciamento de Imunizados de H1N1, implementado
 de forma dinâmica, através da estrutura de dados de lista encadeada.
 
 \section{Metodologia} \label{sec:firstpage}
@@ -73,8 +73,14 @@ de tratar exceções na manipulação da lista.
 
 \subsection{Requisitos}
 
-Cadastro de pessoas vacinadas com informações pessoais; Consulta de dados através do número de cadastro, nome e rg; Atualização de dados; Remoção
-de cadastro e exibição de dados em ordem crescente de pacientes com determinada idade.
+Os requisitos do sistema de gerenciamento são:\\
+
+\begin{itemize}
+\item Cadastro de pessoas vacinadas com informações pessoais
+\item Consulta de dados através do número de cadastro, nome e rg
+\item Atualização de dados
+\item Remoção de cadastro e exibição de dados em ordem crescente de pacientes com determinada idade
+\end{itemize}
 
 \subsection{Ambiente Utilizado}
 
@@ -209,7 +215,7 @@ Implementa o mesmo mecanismo da função ```Consulta Cadastro'', sendo que o ún
 \subsection{Consulta RG}
 
 Também possui muitas semelhanças com as duas funções acima, mas a busca é guiada pelo número
-do Registro Geral.
+do Registro Geral cadastrado.
 
 \subsection{Remover}
 
@@ -238,7 +244,7 @@ mesmo após sua remoção, como descrito no algoritmo \ref{alg3}
 \end{algorithm}  
 
 \subsection{Ordem alfabética}
-Recebe um matriz de caracteres, que representa nomes de imunizados e ordem por ordem
+Recebe um matriz de caracteres, que representa os nomes de imunizados e através de um laço for e while reorganiza por ordem
 alfabética, como descrito no algoritmo \ref{alg4}.
 
 
@@ -261,7 +267,7 @@ alfabética, como descrito no algoritmo \ref{alg4}.
 \subsection{Exibir}
 
 Recebe um ponteiro correspondente a um nó da lista e exibe todos os seus campos,
-que são dados de um paciente, como descrito no algoritmo .
+que são dados de um paciente, como descrito no algoritmo.
 
 
 \subsection{Relatório 2}
