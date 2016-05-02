@@ -184,8 +184,8 @@ o cadastro não seja encontrado, emite uma mensagem informativa
 \caption{Atualização dados}          % give the algorithm a caption
 \label{alg2}                           % and a label for \ref{} commands later in the document
 \begin{algorithmic}                    % enter the algorithmic environment
-    \STATE $achou \Leftarrow \TRUE$
-    \STATE $aux \Leftarrow LISTA\hat.proximo$
+    \STATE $achou \Leftarrow \FALSE$
+    \STATE $aux\hat \Leftarrow LISTA\hat.proximo$
     \WHILE {$((aux \neq nill) \AND (achou \neq \TRUE))$}
       \IF{$(aux\hat.numCadastro = cadastro)$}
         \STATE $exibir(aux)$
@@ -205,7 +205,26 @@ o cadastro não seja encontrado, emite uma mensagem informativa
 
 Esta função recebe como parâmetro de entrada o número de cadastro procurado, assim
 através de um loop while,como descrito no algoritmo \ref{alg2} percorre a lista e ao encontrar o cadastro desejado, exibe
-todos seus dados e pede novos dados. Caso não encontre, emite uma mensagem de alerta. 
+todos seus dados e pede novos dados. Caso não encontre, emite uma mensagem de alerta.
+
+\begin{algorithm}                      % enter the algorithm environment
+\caption{Consulta através do cadastro}          % give the algorithm a caption
+\label{alg3}                           % and a label for \ref{} commands later in the document
+\begin{algorithmic}                    % enter the algorithmic environment
+    \STATE $achou \Leftarrow \FALSE$
+    \STATE $aux\hat \Leftarrow LISTA\hat.proximo$
+    \WHILE {$((aux \neq nill)$}
+      \IF{$(aux\hat.numCadastro = cadastro)$}
+        \STATE $exibir(aux)$
+        \STATE $achou \Leftarrow \TRUE$
+      \ENDIF  
+    \STATE $aux \Leftarrow aux\hat.proximo$
+    \ENDWHILE
+    \IF{$achou \neq \TRUE$}
+      \PRINT \texttt{"Cadastro Nao Encontrado"}
+    \ENDIF
+\end{algorithmic}
+\end{algorithm}   
 
 \subsection{Consulta Nome}
 
@@ -222,11 +241,11 @@ do Registro Geral cadastrado.
 A função remover procura através do loop while, o cadastro que o usuário deseja remover, sempre
 guardando os valores do próximo e anterior. Ao encontrar, o espaço de memória desse cadastro é
 liberado e seu anterior e próximo são ligados através do uso de ponteiros, para que a lista continue
-mesmo após sua remoção, como descrito no algoritmo \ref{alg3}
+mesmo após sua remoção, como descrito no algoritmo \ref{alg4}
 
 \begin{algorithm}                      % enter the algorithm environment
 \caption{Remoção}          % give the algorithm a caption
-\label{alg3}                           % and a label for \ref{} commands later in the document
+\label{alg4}                           % and a label for \ref{} commands later in the document
 \begin{algorithmic}                    % enter the algorithmic environment
     \STATE $anterior \Leftarrow LISTA$
     \STATE $aux \Leftarrow LISTA\hat.proximo$
@@ -245,12 +264,12 @@ mesmo após sua remoção, como descrito no algoritmo \ref{alg3}
 
 \subsection{Ordem alfabética}
 Recebe um matriz de caracteres, que representa os nomes de imunizados e através de um laço for e while reorganiza por ordem
-alfabética, como descrito no algoritmo \ref{alg4}.
+alfabética, como descrito no algoritmo \ref{alg5}.
 
 
 \begin{algorithm}                      % enter the algorithm environment
 \caption{Ordem Alfabética}          % give the algorithm a caption
-\label{alg4}                           % and a label for \ref{} commands later in the document
+\label{alg5}                           % and a label for \ref{} commands later in the document
 \begin{algorithmic}                    % enter the algorithmic environment
     \FOR {$j=1$ \TO $total$}
       \STATE $StrPCopy(aux, nomes[j])$
@@ -274,11 +293,11 @@ que são dados de um paciente, como descrito no algoritmo.
 
 Esta função conta a quantidade de pacientes com determinada idade, cria um vetor dinamicamente
 para armazenar seus nomes, chama a função ordem alfabetica e exibe os dados dos pacientes por ordem
-alfabética como descrito no algoritmo \ref{alg5}
+alfabética como descrito no algoritmo \ref{alg6}
 
 \begin{algorithm}                      % enter the algorithm environment
 \caption{Exibir em ordem alfabética}          % give the algorithm a caption
-\label{alg5}                           % and a label for \ref{} commands later in the document
+\label{alg6}                           % and a label for \ref{} commands later in the document
 \begin{algorithmic}
   \WHILE {$(i < total)$}                    % enter the algorithmic environment
       \WHILE {$((aux \neq nill)$}
