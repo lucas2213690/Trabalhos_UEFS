@@ -1,0 +1,301 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+
+\usepackage{graphicx}
+
+\usepackage{url}
+
+\usepackage{algorithms}
+
+\usepackage{algorithmic}
+
+\usepackage[brazil]{babel}   
+%\usepackage[latin1]{inputenc}  
+\usepackage[utf8]{inputenc}  
+% UTF-8 encoding is recommended by ShareLaTex
+
+     
+\sloppy
+
+\title{Sistema de Gerenciameto de Imunizados}
+
+\author{Lucas A. da Encarnação Oliveira\inst{1} }
+
+
+\address{Departamento de Ciências Exatas -- Universidade Estadual de Feira de Santana
+  (UEFS)\\
+  Feira de Santana -- BA -- Brazil
+  \email{lucas2213690@gmail.com}
+}
+
+\begin{document} 
+
+\maketitle
+     
+\begin{resumo} 
+  Este artigo irá abordar um Sistema de Gerenciamento de Imunizados, para fins
+  educacionais. Implementado em linguagem C com as funcionalidades de cadastro,
+  consulta, atualização, remoção, e exibição dos dados de pacientes de determinada
+  idade em ordem alfabética.
+\end{resumo}
+
+
+\section{Introdução}
+
+A Tecnologia da Informação é muito utilizada em Sistemas de Gerenciamento,
+pela facilidade em organizar, acessar e mudar dados e informações. Deste modo
+este presente relatório traz um Sistema de Gerenciamento de Imunizados, implementado
+de forma dinâmica, através da estrutura de dados de lista encadeada.
+
+\section{Metodologia} \label{sec:firstpage}
+   
+
+\subsection{Sessões Tutoriais}
+
+Foi claro a necessidade de uso da lista encadeada como estrutura de dados
+para este projeto, já que deve ser gerenciado dinâmicamente, para isso também
+surge a necessidade de utilizar uma estrutura, já adicionando os campos de cadastro.
+Na inserção surgiu a ideia de utilizar um elemento estático como início da lista
+e o método de inserir no final da lista, evitando assim tratar exceções na primeira
+inicialização e na remoção. Outra questão levantada é o uso de menus e sub-menus para
+informar o usuário sobre as diversas opçãos do sistema. Na remoção também é interessante
+verificar se o elemento é o primeiro ou último, caso o primeiro elemento não seja 
+estático. Indagou-se qual método de ordenação implementar para exibição em
+ordem alfabética.
+
+\subsection{Implementação}
+
+Utilizou-se uma estrutura com os campos de cadastro e lista encadeada simples, pois não havia necessidade de lista duplamente
+encadeada. Implementou-se a ideia de um elemento estático e inserção no final, evitando exceções na manipulação da lista.
+Utilizou-se menus e sub-menus intuitivos na interface. Como foi implementado um elemento inicial estático, não houve necessidade
+de tratar exceções na manipulação da lista.      
+
+\subsection{Requisitos}
+
+Cadastro de pessoas vacinadas com informações pessoais; Consulta de dados através do número de cadastro, nome e rg; Atualização de dados; Remoção
+de cadastro e exibição de dados em ordem crescente de pacientes com determinada idade.
+
+\subsection{Ambiente Utilizado}
+
+No desenvolvimento do projeto foi utilizado o Sistema Operacional Windows 10.0.14332 64 Bits e
+o GCC 
+
+\section{Fundamentação Teórica}
+
+\subsection{STDLIB.H}
+
+O padrão ANSI C normaliza que os prótotipos para funções de alocação dinâmica
+estão contidas na biblioteca STDLIB.H
+
+\subsubsection{Função sizeof}
+ 
+  \cite{kernighan1988c}, define a função sizeof como:
+\begin{quotation}
+
+``A linguagem C possui um operador unário em tempo de execução que pode ser usado para calcular
+o tamanho de qualquer objeto. Essa expressão produz um inteiro igual ao tamanho do 
+objeto ou tipo em bytes. Um objeto pode ser variavel ou vetor ou estrutura. Um tipo de nome
+pode ser um tipo básico como int ou double, ou um tipo derivado de uma estrutura ou um ponteiro''.
+\end{quotation}
+
+
+
+\subsubsection{Função malloc}
+
+%void *malloc(size_t size)\newline \newline
+Recebe como argumento o número de bytes de determinado tipo de dados, alocando memória suficiente no ``heap'' em tempo
+de execução, tem como retorno o endereço do primeiro byte \cite{schildt:96}.
+
+\subsubsection{Função free}
+
+void free(void *ptr)\\
+Recebe como argumento um ponteiro e devolve ao heap o endereço apontado por esse argumento, liberando a memória.
+Somente deve ser utilizada para liberar um espaço breviamente alocado dinamicamente\cite{schildt:96}. 
+
+\subsection{STDBOOL.H}
+
+Introduzida através norma ISO 9899:1999 (C99) no ANSI C, possibilita o uso do tipo de dado Bool e define macros como: ``true'' e ``false'' \cite{stroustrup2002sibling}. 
+
+\subsection{STRING.H}
+
+\subsubsection{Função strcpm}
+
+int strcmp ( const char * str1, const char * str2 )\\
+
+Tem como parâmetro o ponteiro de duas string, desse modo realiza a comparação. Retorna um valor negativo caso o primeiro argumento
+tiver um valor menor, valor positivo caso o primeiro argumento será maior e zero se as duas strings forem iguais \cite{kernighan1988c}.
+
+
+
+\section{Resultado e Discussões}
+
+\subsection{Menu Principal}
+
+Apresenta o menu principal com as diversas opções baseadas nos requisitos do projeto,
+assim retorna a opção escolhida, para executar determinada função 
+
+
+\subsection{Menu Consulta}
+
+Exibe um sub-menu, com as diversas opção de busca para que seja executado um determinado
+método
+
+
+\subsection{Leitura}
+
+Recebe um ponteiro do tipo lista, e pede a leitura de dados como nome, idade, 
+endereço, posto de saúde, salvando estes dados nos campos correspondentes
+da estrutura
+
+\subsection{Função Inserção Final}
+
+
+\begin{algorithm}                      % enter the algorithm environment
+\caption{Inserção no final da lista}          % give the algorithm a caption
+\label{alg1}                           % and a label for \ref{} commands later in the document
+\begin{algorithmic}                    % enter the algorithmic environment
+    \STATE $old \Leftarrow LISTA\hat.proximo$
+    \STATE $novo \Leftarrow new(elo)$
+    \STATE $leitura(novo)$
+    \STATE $LISTA\hat.proximo \Leftarrow novo$
+    \STATE $novo\hat.proximo \Leftarrow old$
+\end{algorithmic}
+\end{algorithm}
+
+Esta função coloca um item dinamicamente no final da lista, como descrito no algoritmo \ref{alg1}.
+
+
+
+\subsection{Função Atualizar}
+
+Esta função recebe o número de cadastro que o usuário deseja atualizar,
+exibe os dados antigos e refaz a leitura, atualizando os dados. Caso
+o cadastro não seja encontrado, emite uma mensagem informativa
+
+
+\begin{algorithm}                      % enter the algorithm environment
+\caption{Atualização dados}          % give the algorithm a caption
+\label{alg2}                           % and a label for \ref{} commands later in the document
+\begin{algorithmic}                    % enter the algorithmic environment
+    \STATE $achou \Leftarrow \TRUE$
+    \STATE $aux \Leftarrow LISTA\hat.proximo$
+    \WHILE {$((aux \neq nill) \AND (achou \neq \TRUE))$}
+      \IF{$(aux\hat.numCadastro = cadastro)$}
+        \STATE $exibir(aux)$
+        \STATE $leitura(aux)$
+        \STATE $achou \Leftarrow \TRUE$
+      \ENDIF  
+    \STATE $aux \Leftarrow aux\hat.proximo$
+    \ENDWHILE
+    \IF{$achou \neq \TRUE$}
+      \PRINT \texttt{"Nao Encontrado"}
+    \ENDIF
+\end{algorithmic}
+\end{algorithm}  
+
+
+\subsection{Consulta Cadastro}
+
+Esta função recebe como parâmetro de entrada o número de cadastro procurado, assim
+através de um loop while,como descrito no algoritmo \ref{alg2} percorre a lista e ao encontrar o cadastro desejado, exibe
+todos seus dados e pede novos dados. Caso não encontre, emite uma mensagem de alerta. 
+
+\subsection{Consulta Nome}
+
+Implementa o mesmo mecanismo da função ```Consulta Cadastro'', sendo que o único diferencial
+é que a busca é guiada pelo nome de cadastro.
+
+\subsection{Consulta RG}
+
+Também possui muitas semelhanças com as duas funções acima, mas a busca é guiada pelo número
+do Registro Geral.
+
+\subsection{Remover}
+
+A função remover procura através do loop while, o cadastro que o usuário deseja remover, sempre
+guardando os valores do próximo e anterior. Ao encontrar, o espaço de memória desse cadastro é
+liberado e seu anterior e próximo são ligados através do uso de ponteiros, para que a lista continue
+mesmo após sua remoção, como descrito no algoritmo \ref{alg3}
+
+\begin{algorithm}                      % enter the algorithm environment
+\caption{Remoção}          % give the algorithm a caption
+\label{alg3}                           % and a label for \ref{} commands later in the document
+\begin{algorithmic}                    % enter the algorithmic environment
+    \STATE $anterior \Leftarrow LISTA$
+    \STATE $aux \Leftarrow LISTA\hat.proximo$
+    \WHILE {$((aux \neq nill) \AND (aux\hat.numCadastro \neq cadastro))$}
+        \STATE $anterior \Leftarrow aux$
+        \STATE $aux \Leftarrow aux\hat.proximo$
+    \ENDWHILE
+    \IF {$(aux \neq nill)$}
+      \STATE $anterior\hat.proximo \Leftarrow aux\hat.proximo$
+      \STATE $dispose(aux)$
+    \ELSE
+      \PRINT \texttt{"Nao Encontrado"}
+    \ENDIF
+\end{algorithmic}
+\end{algorithm}  
+
+\subsection{Ordem alfabética}
+Recebe um matriz de caracteres, que representa nomes de imunizados e ordem por ordem
+alfabética, como descrito no algoritmo \ref{alg4}.
+
+
+\begin{algorithm}                      % enter the algorithm environment
+\caption{Ordem Alfabética}          % give the algorithm a caption
+\label{alg4}                           % and a label for \ref{} commands later in the document
+\begin{algorithmic}                    % enter the algorithmic environment
+    \FOR {$j=1$ \TO $total$}
+      \STATE $StrPCopy(aux, nomes[j])$
+      \STATE $i \Leftarrow j-1$
+      \WHILE {$((i \geq 0) \AND AnsiStrIComp(nomes[i],aux) > 0)$}
+        \STATE $StrPCopy(nomes[i+1], nomes[i])$
+        \STATE $i \Leftarrow i -1$
+      \ENDWHILE
+      \STATE $StrPCopy(nomes[i+1], aux)$
+    \ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Exibir}
+
+Recebe um ponteiro correspondente a um nó da lista e exibe todos os seus campos,
+que são dados de um paciente, como descrito no algoritmo .
+
+
+\subsection{Relatório 2}
+
+Esta função conta a quantidade de pacientes com determinada idade, cria um vetor dinamicamente
+para armazenar seus nomes, chama a função ordem alfabetica e exibe os dados dos pacientes por ordem
+alfabética como descrito no algoritmo \ref{alg5}
+
+\begin{algorithm}                      % enter the algorithm environment
+\caption{Exibir em ordem alfabética}          % give the algorithm a caption
+\label{alg5}                           % and a label for \ref{} commands later in the document
+\begin{algorithmic}
+  \WHILE {$(i < total)$}                    % enter the algorithmic environment
+      \WHILE {$((aux \neq nill)$}
+          \IF {\NOT $AnsiStrIComp(aux\hat.nome,nomes[i])$}
+            \STATE $exibir(aux))$
+            \STATE $i \Leftarrow i+1$
+          \ENDIF
+      \ENDWHILE
+      \STATE $aux \Leftarrow aux\hat.proximo$
+  \ENDWHILE
+\end{algorithmic}
+\end{algorithm}  
+
+
+
+\section{Conclusão}
+
+Section titles must be in boldface, 13pt, flush left. There should be an extra
+12 pt of space before each title. Section numbering is optional. The first
+paragraph of each section should not be indented, while the first lines of
+subsequent paragraphs should be indented by 1.27 cm.
+
+\bibliographystyle{sbc}
+\bibliography{sbc-template}
+
+\end{document}
