@@ -12,6 +12,11 @@
 
 \documentclass{beamer}
 
+\usepackage[brazil]{babel}   
+%\usepackage[latin1]{inputenc}  
+\usepackage[utf8]{inputenc}  
+% UTF-8 encoding is recommended by ShareLaTex
+
 % There are many different themes available for Beamer. A comprehensive
 % list with examples is given here:
 % http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
@@ -59,7 +64,7 @@
 {
   \inst{1}%
   Departmento de Ciências Exatas\\
-  Universidade Estudual de Feira de Santana
+  Universidade Estadual de Feira de Santana
   }
 % - Use the \inst command only if there are several affiliations.
 % - Keep it simple, no one is interested in your street address.
@@ -109,12 +114,16 @@
 
 \begin{frame}{Introdução}{História PBL e sua relação com nosso contexto}
   \begin{itemize}
-  \item {
-    My first point.
-  }
-  \item {
-    My second point.
-  }
+    \item História PBL
+    \begin{itemize}
+        \item \alert{Problem Based Learning}: Início na escola de medicina na Universidade McMaster (Canadá).
+        \item Estratégia educacional com foco na aprendizagem de habilidades profissionais
+    \end{itemize} 
+    \item Adoção no meio acadêmico brasileiro
+    \begin{itemize}
+        \item Primeira adoção na Faculdade de Marília e Universidade Estadual de Londrina na área da medicina.
+        \item Desde 2003.1 utilizado na UEFS em Engenharia de Computação e Medicina
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -122,29 +131,36 @@
 
 % You can reveal the parts of a slide one at a time
 % with the \pause command:
-\begin{frame}{Second Slide Title}
-  \begin{itemize}
+\begin{frame}{Metodologia PBL}
+  \begin{enumerate}
   \item {
-    First item.
+    Início: apresentação, leitura e interpretação do problema;
     \pause % The slide will pause after showing the first item
   }
   \item {   
-    Second item.
+    Brainstorming: incentivo a criatividade sem pré-julgamento;
+    \pause
   }
-  % You can also specify when the content should appear
-  % by using <n->:
-  \item<3-> {
-    Third item.
+  \item {
+    Sistematização: Organização das ideias obtidas.
+    \pause
   }
-  \item<4-> {
-    Fourth item.
+  \item{
+    Elaboração de questões: Encontrar os principais desafios.
+    \pause
   }
-  % or you can use the \uncover command to reveal general
-  % content (not just \items):
-  \item<5-> {
-    Fifth item. \uncover<6->{Extra text in the fifth item.}
+  \item {
+    Metas de aprendizagem: passos necessário para resolução dos desafios.
+    \pause
   }
-  \end{itemize}
+  \item{
+    Avaliação: análise de aspectos que causam dificuldades.
+    \pause
+  }
+  \item{
+    Repetição: na próxima sessão, o ciclo PBL é retomado do item 2. 
+  }
+  \end{enumerate}
 \end{frame}
 
 \section{Second Main Section}
